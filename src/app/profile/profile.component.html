@@ -49,11 +49,21 @@
  </div>
 
  <div class="form-group row">
+  <label for="dwarfClan" class="col-sm-3 col-form-label">Clan</label>
+  <div class="col-sm-9">
+    <select class="dwarfClan" name="dwarfClan" [(ngModel)]="currentDwarf.clan">
+      <option *ngFor="let clan of clans">{{clan}}</option>
+    </select>
+  </div>
+</div>
+
+ <div class="form-group row">
    <button type="submit" class=" offset-sm-3 btn btn-primary" (click)="submitDwarf()" [disabled]="!currentDwarf.name
    || !currentDwarf.height
    || !currentDwarf.beardColor
    || !currentDwarf.beardLength
    || !currentDwarf.favoriteDrink
-   || !currentDwarf.occupation">Set in Stone</button>
+   || !currentDwarf.occupation
+   || !currentDwarf.clan">Set in Stone</button>
  </div>
 </form>

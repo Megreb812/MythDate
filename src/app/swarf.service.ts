@@ -6,7 +6,7 @@ import {
   HttpHeaders,
   HttpResponse
 } from "@angular/common/http";
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -14,23 +14,67 @@ import {Observable} from "rxjs";
 export class SwarfService {
   dwarves: Dwarf[] = [];
 
-  // getDwarves() {
-  //   return this.dwarves;
-  // }
+  favoriteDrinks: string[] = [
+    "Beer",
+    "Mai-Tai",
+    "Dragon's Blood",
+    "Rob Roy",
+    "Elf Earwax",
+    "Apple Juice"
+  ];
 
-  getDwarves() : Observable<Dwarf[]> {
+  occupations: string[] = [
+    "Smith",
+    "Forger",
+    "Farmer",
+    "Bladesmith",
+    "Gemsmith",
+    "Miner",
+    "Warrior",
+    "Mercenary",
+    "Bootlegger",
+    "Breeder",
+    "Mouth Breather"
+  ];
+
+  clans: string[] = [
+    "Bedazzlers",
+    "Sea Seekers",
+    "Microsofters",
+    "Applers",
+    "Pit Sniffers",
+    "Grave Diggers"
+  ];
+
+  getDrinks() {
+    return this.favoriteDrinks;
+  }
+
+  getOccupations() {
+    return this.occupations;
+  }
+
+  getClans() {
+    return this.clans;
+  }
+
+  getDwarves(): Observable<Dwarf[]> {
     return this.http.get<Dwarf[]>(
-    "https://forge-server-an.herokuapp.com/api/dwarves"
-  );
+      "https://forge-server-an.herokuapp.com/api/dwarves"
+    );
   }
 
-  addDwarf(dwarf: Dwarf){
-    return this.http.post( "https://forge-server-an.herokuapp.com/api/dwarves", dwarf);
+  addDwarf(dwarf: Dwarf) {
+    return this.http.post(
+      "https://forge-server-an.herokuapp.com/api/dwarves",
+      dwarf
+    );
   }
 
-  deleteDwarf(id:string){
-    return this.http.delete("https://forge-server-an.herokuapp.com/api/dwarves/"+ id
-  );
+  deleteDwarf(id: string) {
+    return this.http.delete(
+      "https://forge-server-an.herokuapp.com/api/dwarves/" + id
+    );
   }
 
   // addDwarf(dwarf: Dwarf) {
@@ -38,5 +82,5 @@ export class SwarfService {
   //   this.dwarves.push(dwarf);
   // }
 
-  constructor(private http : HttpClient) {}
+  constructor(private http: HttpClient) {}
 }

@@ -10,28 +10,11 @@ import { Router } from "@angular/router";
 export class ProfileComponent implements OnInit {
  currentDwarf: Dwarf = new Dwarf();
 
- favoriteDrinks: string[] = [
-   "Beer",
-   "Mai-Tai",
-   "Dragon's Blood",
-   "Rob Roy",
-   "Elf Earwax",
-   "Apple Juice"
- ];
+ favoriteDrinks: string[] = [];
 
- occupations: string[] = [
-   "Smith",
-   "Forger",
-   "Farmer",
-   "Bladesmith",
-   "Gemsmith",
-   "Miner",
-   "Warrior",
-   "Mercenary",
-   "Bootlegger",
-   "Breeder",
-   "Mouth Breather"
- ];
+ occupations: string[] = [];
+
+ clans: string[]=[];
 
  submitDwarf() {
    if (
@@ -39,7 +22,8 @@ export class ProfileComponent implements OnInit {
      this.currentDwarf.height &&
      this.currentDwarf.beardColor &&
      this.currentDwarf.favoriteDrink &&
-     this.currentDwarf.occupation
+     this.currentDwarf.occupation &&
+     this.currentDwarf.clan
    ) {
      this.dwarfService
        .addDwarf(this.currentDwarf)
@@ -49,5 +33,9 @@ export class ProfileComponent implements OnInit {
  // the .subscribe makes able to post in spark from profile
  constructor(private dwarfService: SwarfService, private router: Router) {}
 
- ngOnInit() {}
+ ngOnInit() {
+   this.favoriteDrinks = this.dwarfService.getDrinks();
+   this.occupations = this.dwarfService.getOccupations();
+   this.clans = this.dwarfService.getClans();
+ }
 }

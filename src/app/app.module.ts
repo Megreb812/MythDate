@@ -11,6 +11,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule} from"@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { BeardComponent } from './beard/beard.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from "@angular/common/http";
     SparkComponent,
     ProfileComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    BeardComponent
   ],
   imports: [
     BrowserModule,

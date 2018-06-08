@@ -4,6 +4,8 @@ export class Dwarf {
     height: string;
     beardColor: string;
     beardLength: number;
-    FavoriteDrink: string;
-    Occupation: string; 
+    favoriteDrink: string;
+    occupation: string; 
+    clan: string;
+    _id;
 }
