@@ -19,9 +19,9 @@ export class SparkComponent implements OnInit {
      this.dwarves = d;
    });
  }
- deleteDwarf(id: string) {
+ deleteDwarf(id: number) {
    this.dwarfService.deleteDwarf(id).subscribe();
-   this.dwarves = this.dwarves.filter(x => x._id != id);
+   this.dwarves = this.dwarves.filter(x => x.id != id);
  }
 
  ngOnInit() {

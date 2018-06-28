@@ -31,9 +31,9 @@
 
  <div class="form-group row">
    <label for="dwarfOccupation" class="col-sm-3 col-form-label">Occupation</label>
-   <div class="col-sm-9">
+   <div class="col-sm-3">
      <select class="dwarfOccupation" name="dwarfOccupation" [(ngModel)]="currentDwarf.occupation">
-       <option *ngFor="let occupation of occupations">{{occupation}}</option>
+       <option *ngFor="let occupation of occupations">{{occupation.name}}</option>
      </select>
    </div>
  </div>
@@ -41,9 +41,9 @@
 
  <div class="form-group row">
    <label for="dwarfFavoriteDrink" class="col-sm-3 col-form-label">Favorite Drink</label>
-   <div class="col-sm-9">
+   <div class="col-sm-3">
      <select class="dwarfFavoriteDrink" name="dwarfFavoriteDrink" [(ngModel)]="currentDwarf.favoriteDrink">
-       <option *ngFor="let favoriteDrink of favoriteDrinks">{{favoriteDrink}}</option>
+       <option *ngFor="let favoriteDrink of favoriteDrinks">{{favoriteDrink.name}}</option>
      </select>
    </div>
  </div>
@@ -52,7 +52,7 @@
   <label for="dwarfClan" class="col-sm-3 col-form-label">Clan</label>
   <div class="col-sm-9">
     <select class="dwarfClan" name="dwarfClan" [(ngModel)]="currentDwarf.clan">
-      <option *ngFor="let clan of clans">{{clan}}</option>
+      <option *ngFor="let clan of clans">{{clan.name}}</option>
     </select>
   </div>
 </div>

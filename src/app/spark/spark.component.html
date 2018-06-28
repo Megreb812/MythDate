@@ -1,8 +1,8 @@
 <div class="card" *ngFor="let dwarf of dwarves">
   <div class="card-body">
-    <h5 class="card-title">{{dwarf.name}} the {{dwarf.occupation}}<button class="btn btn-danger" (click)="deleteDwarf(dwarf._id)">delete</button></h5>
+    <h5 class="card-title">{{dwarf.name}} the {{dwarf.occupation}}<button class="btn btn-danger" (click)="deleteDwarf(dwarf.id)">delete</button></h5>
     <p class="card-text">
-      {{dwarf._id}}
+      {{dwarf.id}}
       <br/> Height: {{dwarf.height}}
       <br/> Beard color: 
       <span [style.color]= "dwarf.beardColor"> {{dwarf.beardColor}}</span>

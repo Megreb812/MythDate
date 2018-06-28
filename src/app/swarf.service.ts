@@ -7,6 +7,9 @@ import {
   HttpResponse
 } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { FavDrink } from "./favDrink";
+import { Occupation } from "./Occupation";
+import { Clan } from "./Clan";
 
 @Injectable({
   providedIn: "root"
@@ -46,34 +49,44 @@ export class SwarfService {
     "Grave Diggers"
   ];
 
-  getDrinks() {
-    return this.favoriteDrinks;
+  getDrinks(): Observable<FavDrink[]> {
+    // return this.favoriteDrinks;
+    return this.http.get<FavDrink[]>(
+    "http://localhost:8080/favDrink"
+    );
   }
 
-  getOccupations() {
-    return this.occupations;
+  getOccupations(): Observable<Occupation[]> {
+    return this.http.get<Occupation[]>(
+    "http://localhost:8080/occupation"
+    );
   }
 
-  getClans() {
-    return this.clans;
+  getClans(): Observable<Clan[]> {
+    return this.http.get<Clan[]>(
+    "http://localhost:8080/clan"
+    );
   }
 
   getDwarves(): Observable<Dwarf[]> {
     return this.http.get<Dwarf[]>(
-      "https://forge-server-an.herokuapp.com/api/dwarves"
+      // "https://forge-server-an.herokuapp.com/api/dwarves"
+      "http://localhost:8080/dwarf"
     );
   }
 
   addDwarf(dwarf: Dwarf) {
     return this.http.post(
-      "https://forge-server-an.herokuapp.com/api/dwarves",
+      // "https://forge-server-an.herokuapp.com/api/dwarves",
+      "http://localhost:8080/dwarf",
       dwarf
     );
   }
 
-  deleteDwarf(id: string) {
+  deleteDwarf(id: number) {
     return this.http.delete(
-      "https://forge-server-an.herokuapp.com/api/dwarves/" + id
+      // "https://forge-server-an.herokuapp.com/api/dwarves/" 
+      "http://localhost:8080/dwarf/" + id
     );
   }
 
